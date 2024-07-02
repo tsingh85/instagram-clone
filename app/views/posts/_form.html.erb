@@ -14,6 +14,10 @@
     </div>
 
     <div class="field">
+      <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
+    </div>
+
+    <div class="field">
       <% invalid = post.errors.include?(:description)%>
       <%= form.label :description, style: "display: block" %>
       <%= form.text_field :description, class: "form-control" %>
@@ -35,6 +39,7 @@
       <% end %>
     </div>
 
+    <br>
     <%= form.file_field :images, multiple:true %>
 
     <div class="actions" style= "padding: 15px 0"  >
