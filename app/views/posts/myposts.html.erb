@@ -1,0 +1,16 @@
+<div id='posts', class="text-center">
+  <% @posts.each do |post| %>
+    <% if  post.user.id == current_user.id %>
+        <div class="post-container">
+        <h2><%= post.title %></h2>
+        <p><%= post.description %></p>
+        <p><%= post.keywords %></p>
+        <p><%= post.user.email if post.user %></p>
+        <p style= "margin:0"  ><%= link_to '', post, class:"post-link" %></p>
+        <% post.images.each do |image| %>
+            <%= image_tag(image, style: "object-fit: cover; width: 300px; height: 600px") %>
+        <% end %>
+        </div>
+    <% end %>
+  <% end %>
+</div>
