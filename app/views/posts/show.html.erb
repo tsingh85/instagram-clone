@@ -26,5 +26,14 @@
 
 <br>
 
-<%= link_to 'Edit this post', edit_post_path(@post) %> |
+<% if user_signed_in? && current_user.id == @post.user.id %>
+  <%= link_to 'Edit this post', edit_post_path(@post) %> |
+<% end %>
+
 <%= link_to 'Back', posts_path %>
+<%= render "comments/form", comment: @comment %>
+
+<br>
+<% @post.comments.each do |comment|%>
+  <p><%= comment.text %></p>
+<% end %>
