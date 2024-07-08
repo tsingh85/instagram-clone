@@ -15,6 +15,10 @@
       <% end %>
     </div>
     <p>
+      <%= button_to "like", likes_path, params: { like: {post_id: post.id}}, method: :post %>
+      <p><%= post.likes.count %> likes </p>
+    </p>
+    <p>
       <%= link_to post.user.email, post.user, style:"z-index:" %>
     </p>
   <% end %>

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :comments
   has_one_attached :avatar
   before_create :randomize_id
+  has_many :likes, dependent: :destroy
 
   private
   def randomize_id
